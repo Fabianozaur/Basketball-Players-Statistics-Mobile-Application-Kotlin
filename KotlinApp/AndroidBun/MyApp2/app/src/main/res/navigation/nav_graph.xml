@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/PlayerListFragment">
+
+    <fragment
+        android:id="@+id/FragmentLogin"
+        android:name="com.ubb.ubt.auth.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" >
+
+    <action
+        android:id="@+id/action_FragmentLogin_to_PlayerListFragment"
+        app:destination="@id/PlayerListFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/PlayerListFragment"
+        android:name="com.ubb.ubt.todo.players.PlayerListFragment"
+        android:label="@string/player_list_fragment_label"
+        tools:layout="@layout/fragment_player_list" >
+
+        <action
+            android:id="@+id/action_PlayerListFragment_to_PlayerEditFragment"
+            app:destination="@id/PlayerEditFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/PlayerEditFragment"
+        android:name="com.ubb.ubt.todo.player.PlayerEditFragment"
+        android:label="@string/player_edit_fragment_label"
+        tools:layout="@layout/fragment_player_edit" >
+
+        <action
+            android:id="@+id/action_PlayerEditFragment_to_PlayerListFragment"
+            app:destination="@id/PlayerListFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"/>
+    </fragment>
+</navigation>
